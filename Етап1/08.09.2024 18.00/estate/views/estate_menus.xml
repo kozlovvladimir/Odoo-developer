@@ -1,0 +1,70 @@
+<odoo>
+    <!-- Основне меню для Real Estate -->
+    <menuitem
+        id="menu_config_estate_main"
+        name="Real Estate"
+        parent="base.menu_administration"
+        sequence="1"/>
+
+    <!-- Підменю для Advertisement -->
+    <menuitem
+        id="menu_config_estate_advertisements"
+        name="Advertisements"
+        parent="menu_config_estate_main"
+        sequence="1"/>
+
+    <!-- Підменю для Properties -->
+    <menuitem
+        id="menu_config_estate_properties"
+        name="Properties"
+        parent="menu_config_estate_advertisements"
+        sequence="1"
+        action="estate_estate_property_action"/>
+
+    <!-- Дія для Property Types -->
+    <record id="action_estate_property_type" model="ir.actions.act_window">
+        <field name="name">Property Types</field>
+        <field name="res_model">estate.property.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_estate_property_type_tree"/>
+    </record>
+
+    <!-- Підменю для Property Types -->
+    <menuitem
+        id="menu_config_estate_property_types"
+        name="Property Types"
+        parent="menu_config_estate_advertisements"
+        sequence="2"
+        action="action_estate_property_type"/>
+
+    <!-- Дія для Property Offers -->
+    <record id="action_estate_property_offer" model="ir.actions.act_window">
+        <field name="name">Property Offers</field>
+        <field name="res_model">estate.property.offer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_tree_estate_property_offer"/>
+    </record>
+
+    <!-- Підменю для Property Offers -->
+    <menuitem
+        id="menu_config_estate_property_offers"
+        name="Property Offers"
+        parent="menu_config_estate_advertisements"
+        sequence="3"
+        action="action_estate_property_offer"/>
+
+    <!-- Дія для Property Tags -->
+    <record id="action_estate_property_tag" model="ir.actions.act_window">
+        <field name="name">Property Tags</field>
+        <field name="res_model">estate.property.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для Property Tags -->
+    <menuitem
+        id="menu_estate_property_tag"
+        name="Property Tags"
+        parent="menu_config_estate_advertisements"
+        action="action_estate_property_tag"
+        sequence="4"/>
+</odoo>

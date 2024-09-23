@@ -1,0 +1,27 @@
+<odoo>
+    <!-- Деревовидне подання для тегів -->
+    <record id="view_tree_estate_property_tag" model="ir.ui.view">
+        <field name="name">estate.property.tag.tree</field>
+        <field name="model">estate.property.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Property Tags">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Формове подання для тегів -->
+    <record id="view_form_estate_property_tag" model="ir.ui.view">
+        <field name="name">estate.property.tag.form</field>
+        <field name="model">estate.property.tag</field>
+        <field name="arch" type="xml">
+            <form string="Property Tag">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
