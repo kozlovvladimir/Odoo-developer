@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Перегляд списку для моделі Doctor Schedule -->
+    <record id="view_hospital_doctor_schedule_tree" model="ir.ui.view">
+        <field name="name">hospital.doctor.schedule.tree</field>
+        <field name="model">hospital.doctor.schedule</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor Schedules">
+                <field name="doctor"/>
+                <field name="date"/>
+                <field name="working_hours"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Перегляд форми для моделі Doctor Schedule -->
+    <record id="view_hospital_doctor_schedule_form" model="ir.ui.view">
+        <field name="name">hospital.doctor.schedule.form</field>
+        <field name="model">hospital.doctor.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Doctor Schedule">
+                <group>
+                    <field name="doctor"/>
+                    <field name="date"/>
+                    <field name="working_hours"/>
+                </group>
+                <footer>
+                    <button string="Save" type="object" name="create" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Дія для відкриття списку розкладів лікарів (doctor schedules) -->
+    <record id="action_hospital_doctor_schedule" model="ir.actions.act_window">
+        <field name="name">Doctor Schedules</field>
+        <field name="res_model">hospital.doctor.schedule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_hospital_doctor_schedule_tree"/>
+    </record>
+
+    <!-- Пункт меню для моделі Doctor Schedule -->
+    <menuitem id="menu_hospital_doctor_schedule" name="Doctor Schedules"
+        parent="menu_hospital_main" action="action_hospital_doctor_schedule"/>
+</odoo>

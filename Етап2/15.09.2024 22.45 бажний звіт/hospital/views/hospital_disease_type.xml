@@ -1,0 +1,40 @@
+<odoo>
+    <!-- Дерево (список) для перегляду типів захворювань -->
+    <record id="view_disease_type_tree" model="ir.ui.view">
+        <field name="name">disease.type.tree</field>
+        <field name="model">hospital.disease.type</field>
+        <field name="arch" type="xml">
+            <tree string="Disease Types">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Форма для додавання/редагування типу захворювання -->
+    <record id="view_disease_type_form" model="ir.ui.view">
+        <field name="name">disease.type.form</field>
+        <field name="model">hospital.disease.type</field>
+        <field name="arch" type="xml">
+            <form string="Disease Type">
+                <group>
+                    <field name="name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Дія для відображення списку типів захворювань -->
+    <record id="action_disease_type" model="ir.actions.act_window">
+        <field name="name">Disease Types</field>
+        <field name="res_model">hospital.disease.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first disease type
+            </p>
+        </field>
+    </record>
+
+    <!-- Пункт меню для доступу до типів захворювань -->
+    <menuitem id="menu_disease_type" name="Disease Types" parent="menu_hospital_main" action="action_disease_type"/>
+</odoo>

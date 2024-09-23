@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Перегляд візарду для переносу запису на інший час -->
+    <record id="view_reschedule_appointment_wizard" model="ir.ui.view">
+        <field name="name">reschedule.appointment.wizard.form</field>
+        <field name="model">reschedule.appointment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reschedule Appointment">
+                <group>
+                    <field name="appointment_id"/>
+                    <field name="new_doctor_id"/>
+                    <field name="new_date"/>
+                </group>
+                <footer>
+                    <button string="Reschedule" type="object" name="reschedule_appointment" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Додавання кнопки для запуску візарду -->
+    <record id="action_reschedule_appointment" model="ir.actions.act_window">
+        <field name="name">Reschedule Appointment</field>
+        <field name="res_model">reschedule.appointment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Пункт меню для запуску візарду -->
+    <menuitem id="menu_reschedule_appointment" name="Reschedule Appointment"
+        parent="menu_hospital_main" action="action_reschedule_appointment"/>
+</odoo>

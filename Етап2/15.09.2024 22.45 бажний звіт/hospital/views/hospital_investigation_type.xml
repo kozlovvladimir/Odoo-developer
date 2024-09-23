@@ -1,0 +1,43 @@
+<odoo>
+    <!-- Перегляд списку для Investigation Types -->
+    <record id="view_investigation_type_tree" model="ir.ui.view">
+        <field name="name">hospital.investigation.type.tree</field>
+        <field name="model">hospital.investigation.type</field>
+        <field name="arch" type="xml">
+            <tree string="Investigation Types">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Перегляд форми для Investigation Types -->
+    <record id="view_investigation_type_form" model="ir.ui.view">
+        <field name="name">hospital.investigation.type.form</field>
+        <field name="model">hospital.investigation.type</field>
+        <field name="arch" type="xml">
+            <form string="Investigation Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Дія для Investigation Types -->
+    <record id="action_investigation_type" model="ir.actions.act_window">
+        <field name="name">Investigation Types</field>
+        <field name="res_model">hospital.investigation.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Пункт меню для Investigation Types -->
+    <menuitem id="menu_investigation_type"
+              name="Investigation Types"
+              parent="menu_hospital_main"
+              sequence="7"
+              action="action_investigation_type"/>
+</odoo>

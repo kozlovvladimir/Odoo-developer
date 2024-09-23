@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Перегляд форми для моделі Patient -->
+    <record id="view_hospital_patient_form" model="ir.ui.view">
+        <field name="name">hospital.patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <group>
+                    <field name="name"/>
+                    <field name="birth_date"/>
+                    <field name="age" readonly="1"/>
+                    <field name="passport_data"/>
+                    <field name="related_contact"/>
+                    <field name="doctor"/>
+                </group>
+                <footer>
+                    <button string="Save" type="object" name="create" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

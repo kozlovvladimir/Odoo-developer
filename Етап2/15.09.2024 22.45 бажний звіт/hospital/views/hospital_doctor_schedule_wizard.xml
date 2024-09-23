@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Перегляд візарду для розкладу лікаря -->
+    <record id="view_doctor_schedule_wizard" model="ir.ui.view">
+        <field name="name">doctor.schedule.wizard.form</field>
+        <field name="model">doctor.schedule.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Set Doctor Schedule for Week">
+                <group>
+                    <field name="doctor_id"/>
+
+                    <!-- Поле для вибору типу розкладу -->
+                    <field name="schedule_type"/>
+
+                    <field name="is_even_week"/>
+                    <field name="week_schedule" widget="one2many_list"/>
+                </group>
+                <footer>
+                    <button string="Create Schedule" type="object" name="create_schedule" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Додавання кнопки для запуску візарду -->
+    <record id="action_doctor_schedule_wizard" model="ir.actions.act_window">
+        <field name="name">Doctor Schedule Wizard</field>
+        <field name="res_model">doctor.schedule.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Пункт меню для запуску візарду -->
+    <menuitem id="menu_doctor_schedule_wizard" name="Doctor Schedule Wizard"
+        parent="menu_hospital_main" action="action_doctor_schedule_wizard"/>
+</odoo>

@@ -1,0 +1,129 @@
+<odoo>
+    <!-- Основне меню для Hospital -->
+    <menuitem id="menu_hospital_main" name="Hospital" sequence="1"/>
+
+    <!-- Дія для Пацієнтів -->
+    <record id="action_hospital_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для Пацієнтів -->
+    <menuitem id="menu_hospital_patients" name="Patients" parent="menu_hospital_main" sequence="1"
+              action="action_hospital_patient"/>
+
+    <!-- Дія для Лікарів -->
+    <record id="action_hospital_doctor" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">hospital.doctor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для Лікарів -->
+    <menuitem id="menu_hospital_doctors" name="Doctors" parent="menu_hospital_main" sequence="2"
+              action="action_hospital_doctor"/>
+
+    <!-- Дія для Діагнозів -->
+    <record id="action_hospital_diagnosis" model="ir.actions.act_window">
+        <field name="name">Diagnosis</field>
+        <field name="res_model">hospital.diagnosis</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для Діагнозів -->
+    <menuitem id="menu_hospital_diagnosis" name="Diagnosis" parent="menu_hospital_main" sequence="3"
+              action="action_hospital_diagnosis"/>
+
+    <!-- Дія для Досліджень -->
+    <record id="action_hospital_investigation" model="ir.actions.act_window">
+        <field name="name">Investigations</field>
+        <field name="res_model">hospital.investigation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для Досліджень -->
+    <menuitem id="menu_hospital_investigation" name="Investigations" parent="menu_hospital_main" sequence="6"
+              action="action_hospital_investigation"/>
+
+    <!-- Дія для Розкладів Лікарів -->
+    <record id="action_hospital_doctor_schedule" model="ir.actions.act_window">
+        <field name="name">Doctor Schedules</field>
+        <field name="res_model">hospital.doctor.schedule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для Розкладів Лікарів -->
+    <menuitem id="menu_hospital_doctor_schedule" name="Doctor Schedules" parent="menu_hospital_main" sequence="7"
+              action="action_hospital_doctor_schedule"/>
+
+    <!-- Дія для Типів Досліджень -->
+    <record id="action_hospital_sample_type" model="ir.actions.act_window">
+        <field name="name">Sample Types</field>
+        <field name="res_model">hospital.sample.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для Типів Досліджень -->
+    <menuitem id="menu_hospital_sample_type" name="Sample Types" parent="menu_hospital_main" sequence="8"
+              action="action_hospital_sample_type"/>
+
+    <!-- Дія для перегляду списку прийомів -->
+    <record id="action_hospital_appointment" model="ir.actions.act_window">
+        <field name="name">Doctor Appointments</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для перегляду прийомів -->
+    <menuitem id="menu_hospital_appointment" name="Doctor Appointments" parent="menu_hospital_main" sequence="9"
+              action="action_hospital_appointment"/>
+
+    <!-- Дія для перегляду хвороб -->
+    <record id="action_hospital_disease" model="ir.actions.act_window">
+        <field name="name">Diseases</field>
+        <field name="res_model">hospital.disease</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для хвороб -->
+    <menuitem id="menu_hospital_disease" name="Diseases" parent="menu_hospital_main" sequence="10"
+              action="action_hospital_disease"/>
+
+    <!-- Дія для перегляду типів досліджень -->
+    <record id="action_hospital_investigation_type" model="ir.actions.act_window">
+        <field name="name">Investigation Types</field>
+        <field name="res_model">hospital.investigation.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для типів досліджень -->
+    <menuitem id="menu_hospital_investigation_type" name="Investigation Types" parent="menu_hospital_main" sequence="11"
+              action="action_hospital_investigation_type"/>
+
+    <!-- Дія для перегляду каталогу типів хвороб (Disease Directory) -->
+    <record id="action_hospital_disease_directory" model="ir.actions.act_window">
+        <field name="name">Disease Directory</field>
+        <field name="res_model">hospital.disease.directory</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Підменю для каталогу типів хвороб (Disease Directory) -->
+    <menuitem id="menu_hospital_disease_directory" name="Disease Directory" parent="menu_hospital_main" sequence="12"
+              action="action_hospital_disease_directory"/>
+
+    <!-- Меню для звітів -->
+    <menuitem id="menu_hospital_reports" name="Звітність" parent="menu_hospital_main" sequence="13"/>
+
+    <!-- Дія для звіту по хворобам -->
+    <record id="action_disease_report" model="ir.actions.act_window">
+        <field name="name">Звіт по хворобам за місяць</field>
+        <field name="res_model">hospital.disease.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Додати меню для звіту по хворобам -->
+    <menuitem id="menu_disease_report" name="Звіт по хворобам"
+              parent="menu_hospital_reports" action="action_disease_report" sequence="10"/>
+
+</odoo>

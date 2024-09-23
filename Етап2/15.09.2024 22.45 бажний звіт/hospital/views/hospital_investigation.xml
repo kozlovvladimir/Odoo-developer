@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Перегляд списку для моделі Medical Investigation -->
+    <record id="view_hospital_investigation_tree" model="ir.ui.view">
+        <field name="name">hospital.investigation.tree</field>
+        <field name="model">hospital.investigation</field>
+        <field name="arch" type="xml">
+            <tree string="Medical Investigations">
+                <field name="patient"/>
+                <field name="investigation_type"/>
+                <field name="doctor"/>
+                <field name="sample"/>
+                <field name="investigation_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Перегляд форми для моделі Medical Investigation -->
+    <record id="view_hospital_investigation_form" model="ir.ui.view">
+        <field name="name">hospital.investigation.form</field>
+        <field name="model">hospital.investigation</field>
+        <field name="arch" type="xml">
+            <form string="Medical Investigation">
+                <group>
+                    <field name="patient"/>
+                    <field name="investigation_type"/>
+                    <field name="doctor"/>
+                    <field name="sample"/>
+                    <field name="conclusions"/>
+                    <field name="investigation_date"/>
+                </group>
+                <footer>
+                    <button string="Save" type="object" name="create" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Дія для відкриття списку медичних досліджень (investigations) -->
+    <record id="action_hospital_investigation" model="ir.actions.act_window">
+        <field name="name">Medical Investigations</field>
+        <field name="res_model">hospital.investigation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_hospital_investigation_tree"/>
+    </record>
+
+    <!-- Пункт меню для моделі Medical Investigation -->
+    <menuitem id="menu_hospital_investigation" name="Medical Investigations"
+        parent="menu_hospital_main" action="action_hospital_investigation"/>
+</odoo>

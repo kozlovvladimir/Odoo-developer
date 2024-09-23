@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Перегляд списку для Person (наслідується в інших моделях) -->
+    <record id="view_hospital_person_tree" model="ir.ui.view">
+        <field name="name">hospital.person.tree</field>
+        <field name="model">hospital.person</field>
+        <field name="arch" type="xml">
+            <tree string="Persons">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Перегляд форми для Person (наслідується в інших моделях) -->
+    <record id="view_hospital_person_form" model="ir.ui.view">
+        <field name="name">hospital.person.form</field>
+        <field name="model">hospital.person</field>
+        <field name="arch" type="xml">
+            <form string="Person">
+                <group>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="image" widget="image"/>
+                </group>
+                <footer>
+                    <button string="Save" type="object" name="create" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

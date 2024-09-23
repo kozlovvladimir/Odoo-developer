@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Перегляд списку для моделі Appointment -->
+    <record id="view_hospital_appointment_tree" model="ir.ui.view">
+        <field name="name">hospital.appointment.tree</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor Appointments">
+                <field name="doctor"/>
+                <field name="patient"/>
+                <field name="appointment_date"/>
+                <field name="is_done"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Перегляд форми для моделі Appointment -->
+    <record id="view_hospital_appointment_form" model="ir.ui.view">
+        <field name="name">hospital.appointment.form</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Doctor Appointment">
+                <group>
+                    <field name="doctor"/>
+                    <field name="patient"/>
+                    <field name="appointment_date"/>
+                    <field name="diagnosis"/>
+                    <field name="recommendations"/>
+                    <field name="is_done"/>
+                </group>
+                <footer>
+                    <button string="Save" type="object" name="create" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Дія для відкриття списку записів (appointments) -->
+    <record id="action_hospital_appointment" model="ir.actions.act_window">
+        <field name="name">Doctor Appointments</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_hospital_appointment_tree"/>
+    </record>
+
+    <!-- Пункт меню для моделі Appointment -->
+    <menuitem id="menu_hospital_appointment" name="Doctor Appointments"
+        parent="menu_hospital_main" action="action_hospital_appointment"/>
+</odoo>

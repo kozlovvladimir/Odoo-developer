@@ -1,0 +1,25 @@
+<odoo>
+    <template id="report_disease_template">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h2>Звіт по хворобам за обраний період</h2>
+                <table class="table table-sm o_main_table">
+                    <thead>
+                        <tr>
+                            <th>Хвороба</th>
+                            <th>Кількість діагнозів</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc_ids" t-as="doc">
+                            <tr>
+                                <td><t t-esc="doc.disease_name"/></td>
+                                <td><t t-esc="doc.diagnosis_count"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>
